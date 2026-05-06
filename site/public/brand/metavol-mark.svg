@@ -1,0 +1,5 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brand mark only — two peach circles forming the snowman silhouette -->
+  <circle cx="30" cy="40" r="14" fill="#FAC090"/>
+  <circle cx="40" cy="22" r="9" fill="#FAC090"/>
+</svg>

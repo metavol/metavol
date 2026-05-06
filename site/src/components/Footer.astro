@@ -1,0 +1,52 @@
+---
+import SnowmanMark from './SnowmanMark.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const homeHref = lang === 'en' ? '/en/' : '/';
+---
+<footer class="foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <SnowmanMark size={30} class="" />
+          <span class="brand-text">metavol</span>
+        </div>
+        <p class="foot-desc">{t('foot.desc')}</p>
+        <div style="margin-top:14px"><span class="amed-badge">{t('foot.amed')}</span></div>
+      </div>
+      <div>
+        <h5>{t('foot.products')}</h5>
+        <ul>
+          <li><a href={`${homeHref}#products`}>metavol classic</a></li>
+          <li><a href={`${homeHref}#products`}>metavol-web</a></li>
+          <li><a href={`${homeHref}#products`}>metavol for amyloid</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>{t('foot.resources')}</h5>
+        <ul>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#instruction">Instruction</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#citation">Citation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>{t('foot.connect')}</h5>
+        <ul>
+          <li><a href="https://github.com/metavol" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.facebook.com/metavol/" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#license">License (MIT)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>{t('foot.copyright')}</span>
+      <span>v3.0 · 2026.05</span>
+    </div>
+  </div>
+</footer>

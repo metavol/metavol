@@ -1,0 +1,45 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<section class="hero">
+  <div class="hot-stripe top"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="pulse"></span>{t('hero.eyebrow')}</span>
+      <h1 class="hero-title">
+        {t('hero.title.line1')}<br />
+        <span class="accent">{t('hero.title.accent')}</span><span class="quote">{t('hero.title.serif')}</span>{t('hero.title.line2')}<br />
+        {t('hero.title.line3')}
+      </h1>
+      <p class="hero-sub">{t('hero.subtitle')}</p>
+      <div class="hero-cta">
+        <a class="btn btn-hot" href="#products">{t('hero.cta.products')} <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#publications">{t('hero.cta.papers')}</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="pet-window">
+        <div class="titlebar">
+          <i class="r"></i><i class="y"></i><i class="g"></i>
+          <span class="fname">case_001.dcm — metavol classic</span>
+        </div>
+        <div class="body">
+          <div class="toolbar">
+            <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="canvas"></div>
+        </div>
+        <div class="stats">
+          <div>SUVmax<b>25.84</b></div>
+          <div>MTV (cc)<b>142.7</b></div>
+          <div>TLG<b>820.4</b></div>
+        </div>
+      </div>
+      <div class="pet-note">{t('hero.note')}</div>
+    </div>
+  </div>
+</section>

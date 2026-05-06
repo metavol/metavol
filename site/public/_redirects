@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects
+# Legacy Google Sites paths → new structure (best-effort migration)
+/Home              /                  301
+/home              /                  301
+/SurfaceMIP        /#products         301
+/Members           /                  301
+/Download          /#download         301
+/Instruction       /#instruction      301
+/Publications      /#publications     301

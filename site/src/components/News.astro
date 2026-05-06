@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const all = await getCollection('news', ({ id }) => id.startsWith(`${lang}/`));
+const items = all
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+  .slice(0, 4);
+
+function fmt(d: Date) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${y}.${m}.${dd}`;
+}
+---
+<section class="news" id="news">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">02</span>{t('news.title')} <span class="serif">{t('news.title.serif')}</span></h2>
+      <p class="lead">{t('news.lead')}</p>
+    </div>
+
+    <div class="news-list">
+      {items.map((it) => (
+        <a class="news-row" href={`#news-${it.id}`}>
+          <span class={`news-chip ${it.data.kind}`}>{it.data.kind}</span>
+          <span class="news-date">{fmt(it.data.date)}</span>
+          <span class="news-title">{it.data.title}</span>
+          <span class="news-arrow">→</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="news-cta">
+      <a class="btn btn-ghost" href="#">{t('news.viewAll')}</a>
+    </div>
+  </div>
+</section>

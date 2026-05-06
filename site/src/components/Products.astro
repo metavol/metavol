@@ -1,0 +1,79 @@
+---
+import ProductLogos from './ProductLogos.astro';
+import { useTranslations, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const webBetaUrl = 'https://metavol.github.io/metavol-web-beta/';
+---
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">01</span>{t('products.title')} <span class="serif">{t('products.title.serif')}</span></h2>
+      <p class="lead">{t('products.lead')}</p>
+    </div>
+
+    <div class="product-grid">
+      <!-- Classic -->
+      <article class="pcard">
+        <div class="pvis classic"><ProductLogos variant="classic" /></div>
+        <div class="pchip-row">
+          <span class="pchip classic">{t('products.classic.chip')}</span>
+          <span class="pchip-status">{t('products.classic.status')}</span>
+        </div>
+        <div class="pcard-body">
+          <h3>{t('products.classic.title')}<small>{t('products.classic.subtitle')}</small></h3>
+          <p class="pdesc">{t('products.classic.desc')}</p>
+          <div class="pmeta">
+            <span>Windows 7/8/10/11</span><span>Free</span><span>FDG-PET</span><span>Texture</span>
+          </div>
+          <div class="pcta">
+            <a class="primary" href="#download">{t('products.classic.cta1')}</a>
+            <a class="secondary" href="#instruction">{t('products.classic.cta2')}</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Web -->
+      <article class="pcard">
+        <div class="pvis web"><ProductLogos variant="web" /></div>
+        <div class="pchip-row">
+          <span class="pchip web">{t('products.web.chip')}</span>
+          <span class="pchip-status beta">Beta</span>
+        </div>
+        <div class="pcard-body">
+          <h3>{t('products.web.title')}<small>{t('products.web.subtitle')}</small></h3>
+          <p class="pdesc">{t('products.web.desc')}</p>
+          <div class="pmeta">
+            <span>Chrome / Edge / Safari</span><span>DICOM</span><span>Free</span>
+          </div>
+          <div class="pcta">
+            <a class="primary" href={webBetaUrl} target="_blank" rel="noopener noreferrer">{t('products.web.cta1')}</a>
+            <a class="secondary" href="#features">{t('products.web.cta2')}</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Amyloid -->
+      <article class="pcard coming">
+        <div class="pvis amyloid"><ProductLogos variant="amyloid" /></div>
+        <div class="pchip-row">
+          <span class="pchip amyloid">{t('products.amyloid.chip')}</span>
+          <span class="pchip-status coming">{t('products.amyloid.status')}</span>
+        </div>
+        <div class="pcard-body">
+          <h3>{t('products.amyloid.title')}<small>{t('products.amyloid.subtitle')}</small></h3>
+          <p class="pdesc">{t('products.amyloid.desc')}</p>
+          <div class="pmeta">
+            <span>Web / Desktop</span><span>Centiloid</span><span>AD研究</span>
+          </div>
+          <div class="pcta">
+            <a class="primary" href="#">{t('products.amyloid.cta1')}</a>
+            <a class="secondary" href="#">{t('products.amyloid.cta2')}</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

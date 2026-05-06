@@ -1,0 +1,6 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" overflow="hidden" viewBox="370 230 530 130">
+  <!-- on-dark variant: no background, white wordmark, brand peach circles -->
+  <path d="M382 310C382 290.67 397.67 275 417 275 436.33 275 452 290.67 452 310 452 329.33 436.33 345 417 345 397.67 345 382 329.33 382 310Z" fill="#FAC090" fill-rule="evenodd"/>
+  <path d="M420 264C420 251.85 430.074 242 442.5 242 454.926 242 465 251.85 465 264 465 276.15 454.926 286 442.5 286 430.074 286 420 276.15 420 264Z" fill="#FAC090" fill-rule="evenodd"/>
+  <text fill="#FFFFFF" font-family="Asap, sans-serif" font-weight="700" font-size="106.667" transform="translate(486 340)">metavol</text>
+</svg>

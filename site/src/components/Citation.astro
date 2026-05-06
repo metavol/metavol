@@ -1,0 +1,31 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<section class="citation" id="citation">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">04</span>{t('cite.title')} <span class="serif">{t('cite.title.serif')}</span></h2>
+      <p class="lead">{t('cite.lead')}</p>
+    </div>
+    <div class="cite-grid">
+      <div class="cite-text">
+        <p>{t('cite.body')}</p>
+        <div class="formats">
+          <button class="active">BibTeX</button>
+          <button>RIS</button>
+          <button>APA</button>
+          <button>Vancouver</button>
+        </div>
+      </div>
+      <pre class="cite-code">{`@article{hirata2014metavol,
+  title   = "Metavol: a free open-source software for tumor volumetric analysis on PET/CT",
+  author  = "Hirata, K. and others",
+  journal = "Annals of Nuclear Medicine",
+  year    = "2018"
+}`}</pre>
+    </div>
+  </div>
+</section>

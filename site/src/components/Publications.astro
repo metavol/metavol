@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const all = await getCollection('publications');
+const items = all
+  .sort((a, b) => b.data.year - a.data.year)
+  .slice(0, 4);
+---
+<section class="pubs" id="publications">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="num">03</span>{t('pubs.title')} <span class="serif">{t('pubs.title.serif')}</span></h2>
+      <p class="lead">{t('pubs.lead')}</p>
+    </div>
+    <div class="pub-list">
+      {items.map((p) => (
+        <article class="pub-row">
+          <span class="pub-year">{p.data.year}</span>
+          <div class="pub-main">
+            <div class="pjournal">{p.data.journal}</div>
+            <div class="ptitle">{p.data.title}</div>
+            <div class="pauthors">{p.data.authors}</div>
+          </div>
+          <div class="pub-meta">{p.data.doi ? 'DOI · Cite' : 'Cite'}</div>
+        </article>
+      ))}
+    </div>
+    <div class="news-cta" style="margin-top:32px">
+      <a class="btn btn-ghost" href="#">{t('pubs.viewAll')}</a>
+    </div>
+  </div>
+</section>

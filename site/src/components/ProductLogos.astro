@@ -1,0 +1,53 @@
+---
+// Product card logos — built around the official metavol mark + wordmark.
+// "classic" uses the brand as-is. "web" and "amyloid" add a small variant chip
+// to indicate the derived editions.
+interface Props { variant: 'classic' | 'web' | 'amyloid'; }
+const { variant } = Astro.props;
+
+const subtitle = {
+  classic: { text: 'classic',     color: '#FFD479' },
+  web:     { text: 'web · BETA',  color: '#A6FFEB' },
+  amyloid: { text: 'for amyloid', color: '#FFD9F0' },
+}[variant];
+---
+<svg
+  class="pvis-logo"
+  width="220"
+  height="120"
+  viewBox="370 230 530 170"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label={`metavol ${subtitle.text} logo`}
+>
+  <!-- Brand mark (peach circles) — always identical across variants -->
+  <path
+    d="M382 310C382 290.67 397.67 275 417 275 436.33 275 452 290.67 452 310 452 329.33 436.33 345 417 345 397.67 345 382 329.33 382 310Z"
+    fill="#FAC090"
+    fill-rule="evenodd"
+  />
+  <path
+    d="M420 264C420 251.85 430.074 242 442.5 242 454.926 242 465 251.85 465 264 465 276.15 454.926 286 442.5 286 430.074 286 420 276.15 420 264Z"
+    fill="#FAC090"
+    fill-rule="evenodd"
+  />
+
+  <!-- Wordmark — white on dark card backgrounds for readability -->
+  <text
+    fill="#FFFFFF"
+    font-family="Asap, sans-serif"
+    font-weight="700"
+    font-size="106.667"
+    transform="translate(486 340)"
+  >metavol</text>
+
+  <!-- Variant subtitle (per product) -->
+  <text
+    fill={subtitle.color}
+    font-family="Asap, sans-serif"
+    font-weight="600"
+    font-size="38"
+    letter-spacing="2"
+    transform="translate(490 388)"
+  >{subtitle.text}</text>
+
+</svg>

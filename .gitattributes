@@ -1,0 +1,13 @@
+# Normalize line endings — keep LF in repo, let Git handle conversion
+* text=auto eol=lf
+
+# Binary files (do not convert)
+*.pdf binary
+*.pptx binary
+*.docx binary
+*.xlsx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
